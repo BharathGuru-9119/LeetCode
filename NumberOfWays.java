@@ -10,12 +10,12 @@ public class NumberOfWays {
         List<Integer> powers = new ArrayList<>();
         for (int base = 1; ; base++) {
             long p = 1;
-            for (int i = 0; i < x; i++) {     // compute base^x safely using long
+            for (int i = 0; i < x; i++) {
                 p *= base;
                 if (p > n) break;
             }
             if (p > n) break;
-            powers.add((int)p);
+            powers.add((int) p);
         }
 
         // 2) dp[s] = number of ways to form sum s using processed powers (each used at most once)
@@ -31,13 +31,12 @@ public class NumberOfWays {
             }
         }
 
-        // 4) Return answer
         return dp[n];
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        NumberOfWays sol = new NumberOfWaysOfWays();
+        NumberOfWays sol = new NumberOfWays(); // ✅ fixed typo here
 
         System.out.print("Enter n: ");
         int n = sc.nextInt();
